@@ -1,166 +1,133 @@
-```markdown
-# 💱 Conversor de Monedas – Java + API ExchangeRate
+# 🚀 **Conversor de Monedas – Java + API ExchangeRate**
 
-Aplicación de consola desarrollada en **Java 17** utilizando **Maven**, que permite convertir valores entre distintas monedas en tiempo real accediendo a una API externa.  
-Este proyecto forma parte de mi formación en desarrollo backend y representa una aplicación realista que integra:
-
-- Consumo de API REST  
-- Procesamiento de JSON con Gson  
-- Manejo de excepciones  
-- Arquitectura por capas (servicios, lógica y presentación)  
-- Generación de .JAR ejecutable  
+Aplicación de consola desarrollada en **Java 17** utilizando **Maven**, que permite convertir valores entre diferentes monedas en tiempo real mediante una API externa.
+Forma parte de mi formación en backend y representa una aplicación práctica con arquitectura limpia y orientada a buenas prácticas.
 
 ---
 
-## 🚀 Funcionalidades
+## ✨ **Funcionalidades**
 
-✔ Conversión en tiempo real utilizando **ExchangeRate API**  
-✔ Soporte para monedas:  
-- USD ↔ ARS  
-- USD ↔ BRL  
-- USD ↔ COP  
+* 🔄 Conversión en tiempo real usando **ExchangeRate API**
+* 💱 Soporte para monedas:
 
-✔ Menú interactivo por consola  
-✔ Manejo de errores (API down, valores incorrectos, JSON inválido)  
-✔ API Key protegida mediante archivo `config.properties`  
-✔ Proyecto empaquetado como **JAR ejecutable** para distribución
+  * USD → ARS
+  * ARS → USD
+  * USD → BRL
+  * BRL → USD
+  * USD → COP
+  * COP → USD
+* 🧭 Menú interactivo por consola
+* 🛡️ Manejo de errores:
+
+  * API down
+  * Moneda inexistente
+  * JSON inválido
+  * Problemas de red
+* 🔐 API Key protegida mediante `config.properties`
+* 📦 Generación de **JAR ejecutable** listo para distribución
 
 ---
 
-## 🧩 Arquitectura del Proyecto
+## 🏗️ **Arquitectura del Proyecto**
+
+El proyecto está estructurado en capas:
 
 ```
+src/main/java/com.locampocam/
+│── Main.java                 → Punto de entrada
+│── Conversor.java            → Interacción con el usuario (menú)
+│── ProcesadorDeMoneda.java   → Lógica de negocios
+│── ServicioExchangeRate.java → Llamadas a la API y parseo JSON
+```
 
-src/main/java/com/locampocam/
-├── Main.java                     # Punto de entrada
-├── Conversor.java                # Lógica del menú y flujo de la app
-├── ProcesadorDeMoneda.java       # Conversión y validaciones
-└── ServicioExchangeRate.java     # Cliente HTTP + parseo JSON
+```
 src/main/resources/
-└── config.properties             # API Key protegida
-
+│── config.properties         → Contiene la API Key (no se sube al repo)
 ```
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 📁 **Estructura del Proyecto**
 
-- **Java 17**
-- **Maven**
-- **Gson (Google)**
-- **HTTP Client nativo de Java**
-- **ExchangeRate API**
-- **IntelliJ IDEA**
+```
+conversor-monedas/
+│── src/
+│   ├── main/
+│   │   ├── java/
+│   │   └── resources/
+│   └── test/
+│── target/
+│── pom.xml
+│── .gitignore
+│── README.md
+```
 
 ---
 
-## 🔑 Configuración de la API Key
-
-Crear el archivo:
+## 🧪 **Ejemplo de Uso**
 
 ```
+===== Conversor de Monedas =====
+1) USD → ARS
+2) ARS → USD
+3) USD → BRL
+4) BRL → USD
+5) USD → COP
+6) COP → USD
+7) Salir
+Seleccione una opción: 1
+Ingrese el valor a convertir: 100
 
+100.0 USD equivalen a 140500.0 ARS
+```
+
+---
+
+## ⚙️ **Cómo Ejecutar el Proyecto**
+
+### 🔧 Requisitos
+
+* Java 17+
+* Maven 3+
+
+### ▶️ Ejecutar desde consola
+
+```sh
+mvn package
+java -jar target/conversor-monedas-1.0-SNAPSHOT.jar
+```
+
+---
+
+## 🔐 API Key (Segura)
+
+Tu key se guarda en:
+
+```
 src/main/resources/config.properties
-
 ```
 
-Agregar tu clave:
+Y tu `.gitignore` evita que se suba:
 
 ```
-
-API_KEY=tu_clave_aqui
-
+src/main/resources/config.properties
 ```
 
-⚠️ *Este archivo está incluido en `.gitignore` para proteger la clave.*
+✔️ Tu clave está protegida.
 
 ---
 
-## ▶️ Cómo ejecutar el proyecto
+## 👩‍💻 **Tecnologías utilizadas**
 
-### 1️⃣ Clonar el repositorio
-
-```
-
-git clone [https://github.com/tuusuario/conversor-monedas.git](https://github.com/tuusuario/conversor-monedas.git)
-
-```
+* Java 17
+* Maven
+* Gson
+* HTTP Client nativo de Java
+* ExchangeRate API
 
 ---
 
-### 2️⃣ Compilar y generar el ejecutable JAR
+## 📜 Licencia
 
-Desde el directorio del proyecto:
+Proyecto de práctica – uso educativo.
 
-```
-
-mvn clean package
-
-```
-
-Esto generará:
-
-```
-
-target/conversor-monedas-1.0-SNAPSHOT.jar
-
-```
-
----
-
-### 3️⃣ Ejecutar el JAR
-
-Ir a la carpeta `target` y ejecutar:
-
-```
-
-java -jar conversor-monedas-1.0-SNAPSHOT.jar
-
-```
-
----
-
-## 📸 Capturas del Proyecto
-
-> Aquí puedes añadir capturas reales desde GitHub:
-
-### 📌 Vista del menú:
-*(imagen)*
-
-### 📌 Ejemplo de conversión:
-*(imagen)*
-
----
-
-## 🎥 Video demostración
-
-> Puedes grabar un video corto mostrando la ejecución y dejar aquí el enlace.
-
----
-
-## 💼 Sobre este proyecto
-
-Este proyecto refleja mi conocimiento actual en:
-
-- Integración de APIs externas  
-- Manejo de datos en formato JSON  
-- Programación orientada a objetos  
-- Buenas prácticas y organización de código  
-- Desarrollo de aplicaciones Java basadas en terminal  
-- Documentación profesional de software  
-
-Forma parte de mi portafolio como desarrolladora backend.
-
----
-
-## 🌐 Conectemos
-
-- **LinkedIn:** https://www.linkedin.com/in/TU_USUARIO  
-- **GitHub:** https://github.com/TU_USUARIO  
-
----
-
-## ⭐ ¿Te gustó este proyecto?
-
-Si te fue útil o te parece interesante, ¡considera dejar una estrella ⭐ en el repositorio!
-```
