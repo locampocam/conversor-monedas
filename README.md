@@ -3,6 +3,8 @@
 Aplicación de consola desarrollada en **Java 17** utilizando **Maven**, que permite convertir valores entre diferentes monedas en tiempo real mediante una API externa.
 Forma parte de mi formación en backend y representa una aplicación práctica con arquitectura limpia y orientada a buenas prácticas.
 
+![Demo](https://static.wixstatic.com/media/c15b34_72e15f254c6645fe85e6b735d613e983~mv2.gif)
+
 ---
 
 ## ✨ **Funcionalidades**
